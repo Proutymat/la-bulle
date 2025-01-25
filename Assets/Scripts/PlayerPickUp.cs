@@ -55,6 +55,8 @@ public class PlayerPickUp : MonoBehaviour
                     {
                         _grabbableObject.Grab(_objectGrabPointTransform);
                         audioSourceObject = _grabbableObject.GetComponent<AudioSource>(); //Là recuperer
+                        audioSourceObject.volume = Random.Range(0.75f, 0.10f); 
+                        audioSourceObject.pitch = Random.Range(0.8f, 1.2f);
                         audioSourceObject.PlayOneShot(_grabbableObject.grabObjSound);
                     }
                     else
@@ -111,6 +113,12 @@ public class PlayerPickUp : MonoBehaviour
         return false;
     }
 
+    private void ConsumeObject()
+    {
+        _grabbableObject.gameObject.SetActive(false);
+        _grabbableObject = null;
+    }
+
     private void HandleInteractiblesObjects()
     {
         // Is the player looking at a magnetophone
@@ -123,12 +131,25 @@ public class PlayerPickUp : MonoBehaviour
             }
             else
             {
-                if (_grabbableObject.ObjectName == "Tape")
+                if (_grabbableObject.ObjectName == "Tape1")
                 {
-                    // PLAY TAPES SOUND
-                    Debug.Log("Tape sound");
-                    _grabbableObject.gameObject.SetActive(false);
-                    _grabbableObject = null;
+                    // SON CASSETTE 1
+                    ConsumeObject();
+                }
+                else if (_grabbableObject.ObjectName == "Tape2")
+                {
+                    // SON CASSETTE 2
+                    ConsumeObject();
+                }
+                else if (_grabbableObject.ObjectName == "Tape3")
+                {
+                    // SON CASSETTE 3
+                    ConsumeObject();
+                }
+                else if (_grabbableObject.ObjectName == "Tape4")
+                {
+                    // SON CASSETTE 4
+                    ConsumeObject();
                 }
                 else
                 {
