@@ -369,7 +369,7 @@ MonoBehaviour:
   ambienceBasic: {fileID: 8300000, guid: 54fbdb478e55b87499db3219fbb44e6b, type: 3}
   maxDistance: 20
   minDistance: 1
-  bubbleTransform: {fileID: 0}
+  bubbleTransform: {fileID: 928261033}
   constantVolume: 0.2
   maxVolume: 0.25
   lowPassFilterInside: 1000

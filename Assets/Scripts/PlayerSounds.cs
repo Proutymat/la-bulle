@@ -65,13 +65,13 @@ public class PlayerSounds : MonoBehaviour
         }
         if (isPlayerInside)
         {
-            footstepSource.volume = constantVolume * maxVolume; 
+            ambienceSource.volume = constantVolume * maxVolume; 
         }
         else
         {
             float distance = Vector3.Distance(bubbleTransform.position, transform.position);
             float volume = Mathf.Clamp01(1 - (distance - minDistance) / (maxDistance - minDistance));
-            footstepSource.volume = volume*maxVolume;
+            ambienceSource.volume = volume*maxVolume;
         }
     }
     void PlayFootSteps()
@@ -87,6 +87,7 @@ public class PlayerSounds : MonoBehaviour
     {
         if (other.tag == "Bubble")
         {
+            isPlayerInside = true;
             audioMixer.SetFloat("lowPassFilterFS", lowPassFilterInsideFS);
             audioMixer.SetFloat("lowPassFilterBreath", lowPassFilterInsideFS);
             StartCoroutine(PlayInsideBubble());
@@ -96,6 +97,7 @@ public class PlayerSounds : MonoBehaviour
     {
         if (other.tag == "Bubble")
         {
+            isPlayerInside = false;
             audioMixer.SetFloat("lowPassFilterFS", lowPassFilterOutsideFS);
             audioMixer.SetFloat("lowPassFilterBreath", lowPassFilterOutsideFS);
             ambienceSource.Play();

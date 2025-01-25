@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GrabbableObject : MonoBehaviour
 {
@@ -54,6 +55,8 @@ public class GrabbableObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        audioSourceObject.volume = Random.Range(0.75f, 0.10f); 
+        audioSourceObject.pitch = Random.Range(0.8f, 1.2f);
         audioSourceObject.PlayOneShot(dropObjSound);
     }
 }
