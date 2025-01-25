@@ -13,16 +13,32 @@ public class PlayerPickUp : MonoBehaviour
     [SerializeField] private Transform _objectGrabPointTransform;
     [SerializeField] private LayerMask _pickUpLayerMask;
     [SerializeField] private float _pickUpDistance = 2.0f;
+    [SerializeField] private float _interactingDistance = 2.0f;
+
     
     // PRESS E VARIABLES
     [SerializeField] private Canvas _pressECanvas;
     
     private GrabbableObject _grabbableObject;
+
+    private bool _hasAlreadyInteractedOnce;
     
-    // Update is called once per frame
-    void Update()
+    private void Start()
+    {
+        _hasAlreadyInteractedOnce = false;
+    }
+
+    private void DropObject()
+    {
+        _grabbableObject.Drop();
+        _grabbableObject = null;
+    }
+
+    private void HandleGrabbableObjects()
     {
         bool displayCanvas = false;
+        AudioSource audioSourceObject;
+        
 
         // we dont grab anything and we can grab something
         if (_grabbableObject == null)
@@ -38,6 +54,10 @@ public class PlayerPickUp : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         _grabbableObject.Grab(_objectGrabPointTransform);
+                        audioSourceObject = _grabbableObject.GetComponent<AudioSource>(); //Là recuperer
+                        audioSourceObject.volume = Random.Range(0.75f, 0.10f); 
+                        audioSourceObject.pitch = Random.Range(0.8f, 1.2f);
+                        audioSourceObject.PlayOneShot(_grabbableObject.grabObjSound);
                     }
                     else
                     {
@@ -60,11 +80,10 @@ public class PlayerPickUp : MonoBehaviour
                 }
             }
         }
-        // we are grabbing something
+        // we are grabbing something and we can drop it
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            _grabbableObject.Drop();
-            _grabbableObject = null;
+            DropObject();
         }
 
         // show press E canvas
@@ -77,5 +96,79 @@ public class PlayerPickUp : MonoBehaviour
         {
             _pressECanvas.gameObject.SetActive(false);
         }
+    }
+    
+    private bool DetectMagnetophone()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(_playerCameraTransform.position, _playerCameraTransform.forward, out hit, _interactingDistance))
+        {
+            if (hit.collider.gameObject.GetComponent<Magnetophone>())
+            {
+                
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+    private void ConsumeObject()
+    {
+        _grabbableObject.gameObject.SetActive(false);
+        _grabbableObject = null;
+    }
+
+    private void HandleInteractiblesObjects()
+    {
+        // Is the player looking at a magnetophone
+        if (DetectMagnetophone())
+        {
+            if (_grabbableObject == null)
+            {
+                Debug.Log("No object in hand");
+                // PLAY EMPTY MAGNETOPHONE SOUND (antoine)
+            }
+            else
+            {
+                if (_grabbableObject.ObjectName == "Tape1")
+                {
+                    // SON CASSETTE 1
+                    ConsumeObject();
+                }
+                else if (_grabbableObject.ObjectName == "Tape2")
+                {
+                    // SON CASSETTE 2
+                    ConsumeObject();
+                }
+                else if (_grabbableObject.ObjectName == "Tape3")
+                {
+                    // SON CASSETTE 3
+                    ConsumeObject();
+                }
+                else if (_grabbableObject.ObjectName == "Tape4")
+                {
+                    // SON CASSETTE 4
+                    ConsumeObject();
+                }
+                else
+                {
+                    Debug.Log("You can't interact with this object");
+                    DropObject();
+                }
+            }
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // Is the plauer trying to interact with something
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            HandleInteractiblesObjects();
+        }
+        
+        HandleGrabbableObjects();
     }
 }
