@@ -37,6 +37,8 @@ public class PlayerPickUp : MonoBehaviour
     private void HandleGrabbableObjects()
     {
         bool displayCanvas = false;
+        AudioSource audioSourceObject;
+        
 
         // we dont grab anything and we can grab something
         if (_grabbableObject == null)
@@ -52,6 +54,8 @@ public class PlayerPickUp : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         _grabbableObject.Grab(_objectGrabPointTransform);
+                        audioSourceObject = _grabbableObject.GetComponent<AudioSource>(); //Là recuperer
+                        audioSourceObject.PlayOneShot(_grabbableObject.grabObjSound);
                     }
                     else
                     {
