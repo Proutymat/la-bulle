@@ -15,12 +15,14 @@ public class PlayerPickUp : MonoBehaviour
     [SerializeField] private float _pickUpDistance = 2.0f;
     [SerializeField] private float _interactingDistance = 2.0f;
 
-    
+    [Header("Sounds")]
+    [SerializeField] private List<AudioClip> cassette;
     // PRESS E VARIABLES
     [SerializeField] private Canvas _pressECanvas;
     
     private GrabbableObject _grabbableObject;
-
+    [SerializeField] private GameObject _magnetoscope;
+    
     private bool _hasAlreadyInteractedOnce;
     
     private void Start()
@@ -37,7 +39,7 @@ public class PlayerPickUp : MonoBehaviour
     private void HandleGrabbableObjects()
     {
         bool displayCanvas = false;
-        AudioSource audioSourceObject;
+        
         
 
         // we dont grab anything and we can grab something
@@ -50,7 +52,7 @@ public class PlayerPickUp : MonoBehaviour
                 if (raycastHit.transform.TryGetComponent(out _grabbableObject))
                 {
                     displayCanvas = true;
-
+                    AudioSource audioSourceObject;
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         _grabbableObject.Grab(_objectGrabPointTransform);
@@ -121,6 +123,7 @@ public class PlayerPickUp : MonoBehaviour
 
     private void HandleInteractiblesObjects()
     {
+        AudioSource audioSourceMagnetophone;
         // Is the player looking at a magnetophone
         if (DetectMagnetophone())
         {
@@ -133,22 +136,26 @@ public class PlayerPickUp : MonoBehaviour
             {
                 if (_grabbableObject.ObjectName == "Tape1")
                 {
-                    // SON CASSETTE 1
+                    audioSourceMagnetophone = _magnetoscope.GetComponent<AudioSource>();
+                    audioSourceMagnetophone.PlayOneShot(cassette[0]);
                     ConsumeObject();
                 }
                 else if (_grabbableObject.ObjectName == "Tape2")
                 {
-                    // SON CASSETTE 2
+                    audioSourceMagnetophone = _grabbableObject.GetComponent<AudioSource>();
+                    audioSourceMagnetophone.PlayOneShot(cassette[1]);
                     ConsumeObject();
                 }
                 else if (_grabbableObject.ObjectName == "Tape3")
                 {
-                    // SON CASSETTE 3
+                    audioSourceMagnetophone = _grabbableObject.GetComponent<AudioSource>();
+                    audioSourceMagnetophone.PlayOneShot(cassette[2]);
                     ConsumeObject();
                 }
                 else if (_grabbableObject.ObjectName == "Tape4")
                 {
-                    // SON CASSETTE 4
+                    audioSourceMagnetophone = _grabbableObject.GetComponent<AudioSource>();
+                    audioSourceMagnetophone.PlayOneShot(cassette[3]);
                     ConsumeObject();
                 }
                 else
