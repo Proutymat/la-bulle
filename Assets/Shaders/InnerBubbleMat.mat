@@ -7,35 +7,23 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BubbleMat
-  m_Shader: {fileID: -6465566751694194690, guid: ff738eb5cf0bdd8459157cf42d56983b, type: 3}
+  m_Name: InnerBubbleMat
+  m_Shader: {fileID: -6465566751694194690, guid: ce8c162a67fb95845ae6c36ddb4ba1df, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _SURFACE_TYPE_TRANSPARENT
+  m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 1
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap:
-    RenderType: Transparent
+  m_CustomRenderQueue: 4000
+  stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
-  - DepthOnly
-  - SHADOWCASTER
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _ReflexionMap:
-        m_Texture: {fileID: 8900000, guid: f8c759571fdb3c4419b453048412d6ac, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleReflectedCubemap_cbd9ca48a8524c5098ef3e81ae1dba9c_Cube_1_Cubemap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -50,35 +38,27 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaClip: 0
-    - _AlphaToMask: 0
-    - _Blend: 0
-    - _CastShadows: 0
-    - _Cull: 2
-    - _DeformationColorScale: 2.8
+    - _AlphaForce: 3.44
+    - _DeformationColorScale: 1.13
     - _DeformationForce: 0.04
-    - _DeformationScale: 7.28
-    - _DisplacementNoiseForce: 0.01
-    - _DstBlend: 10
-    - _FresnelPow: 3.26
-    - _FresnelWhite: 4.84
-    - _IOR: 0.9
-    - _NoiseScale: 5.06
-    - _QueueControl: 0
+    - _DeformationScale: 5.55
+    - _DisplacementNoiseForce: 0.28
+    - _FresnelPow: 4.8
+    - _FresnelPower: 0.02
+    - _FresnelWhite: 0
+    - _IOR: 0
+    - _QueueControl: 1
     - _QueueOffset: 0
-    - _Smooth: 0.02
+    - _ScaleAlpha: 0.39
+    - _SizeTransparentHoles: 0.26
     - _SpeedRotation: 0.2
-    - _SrcBlend: 5
-    - _Surface: 1
-    - _TransitionVisible: 1
-    - _YAccuracy: 0.9
-    - _ZTest: 4
-    - _ZWrite: 0
-    - _ZWriteControl: 0
-    m_Colors: []
+    - _TransitionVisible: 0
+    - _YAccuracy: 0.4
+    m_Colors:
+    - _EmissiveColorInner: {r: 1.319508, g: 1.319508, b: 1.319508, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &6342096283263088799
+--- !u!114 &7356837077618145485
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
