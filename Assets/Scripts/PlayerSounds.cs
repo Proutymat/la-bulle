@@ -49,7 +49,7 @@ public class PlayerSounds : MonoBehaviour
 
     private void Update()
     {
-        if (playerController._isWalking == true)
+        if (playerController.IsWalking == true)
         {
             currentDuration -= Time.deltaTime;
             //Debug.Log(currentDuration);

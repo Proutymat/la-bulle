@@ -17,8 +17,6 @@ public class GrabbableObject : MonoBehaviour
     public Transform OriginPosition { get { return _originPosition; } }
     public string ObjectName { get { return _objectName; } }
     
-    [SerializeField] private Transform _hand;
-    
     [Header("Sounds")]
     public AudioClip grabObjSound;
     [SerializeField] private AudioClip dropObjSound;

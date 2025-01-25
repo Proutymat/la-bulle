@@ -18,6 +18,8 @@ public class Controller : MonoBehaviour
     [SerializeField] private Camera _playerCamera;
     private bool _isWalking = false;
     
+    public bool IsWalking { get { return _isWalking; } }
+    
     
     // Start is called before the first frame update
     void Start()
