@@ -8,6 +8,8 @@ public class PlayerSounds : MonoBehaviour
     [Header("Footsteps")]
     [SerializeField] private List<AudioClip> basicFS;
     [SerializeField] private List<AudioClip> bubbleFS;
+    [SerializeField] private float volumeMinFS = 0.5f;
+    [SerializeField] private float volumeMaxFS = 0.8f;
     
     [Header("Ambience")]
     [SerializeField] private AudioClip ambienceBasic;
@@ -16,6 +18,8 @@ public class PlayerSounds : MonoBehaviour
     [SerializeField] private float minDistance = 1f;
     [SerializeField] private Transform bubbleTransform;
     [SerializeField] private float constantVolume = 0.25f; //constant value if in bubble
+    [SerializeField] private float maxVolume = 0.35f; //max volume if outside bubble
+    [SerializeField] private bool noSound = false;
 
     private bool isPlayerInside = false; //IsPlayerInside Bubble
     
@@ -60,7 +64,7 @@ public class PlayerSounds : MonoBehaviour
 
             float volume = Mathf.Clamp01(1 - (distance - minDistance) / (maxDistance - minDistance));
 
-            ambienceSource.volume = volume;
+            ambienceSource.volume = volume * maxVolume;
         }
     }
     void PlayFootSteps()
@@ -71,7 +75,7 @@ public class PlayerSounds : MonoBehaviour
         {
             clip = bubbleFS[Random.Range(0, bubbleFS.Count)];
             footstepSource.clip = clip;
-            footstepSource.volume = Random.Range(0.02f, 0.08f);
+            footstepSource.volume = Random.Range(volumeMinFS, volumeMaxFS);
             footstepSource.pitch = Random.Range(0.8f, 1.2f);
             footstepSource.Play();
         }
@@ -79,7 +83,7 @@ public class PlayerSounds : MonoBehaviour
         {
             clip = basicFS[Random.Range(0, basicFS.Count)];
             footstepSource.clip = clip;
-            footstepSource.volume = Random.Range(0.02f, 0.08f);
+            footstepSource.volume = Random.Range(volumeMinFS, volumeMaxFS);
             footstepSource.pitch = Random.Range(0.8f, 1.2f);
             footstepSource.Play();
         }
@@ -88,10 +92,17 @@ public class PlayerSounds : MonoBehaviour
     {
         if (other.tag == "Bubble")
         {
-            //Debug.Log("Enter");
-            ambienceSource.clip = ambienceBubble;
-            ambienceSource.Play();
-            isPlayerInside = true;
+            if (noSound == true)
+            {
+                ambienceSource.Stop();
+            }
+            else
+            {
+                //Debug.Log("Enter");
+                ambienceSource.clip = ambienceBubble;
+                ambienceSource.Play();
+                isPlayerInside = true;
+            }
         }
     }
     private void OnTriggerExit(Collider other)

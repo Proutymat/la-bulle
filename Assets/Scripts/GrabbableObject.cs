@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,12 +10,18 @@ public class GrabbableObject : MonoBehaviour
     private Transform _objectGrabPointTransform;
     [SerializeField] private float lerpSpeed = 10.0f;
 
-    [SerializeField] private Transform _hand;	
+    [SerializeField] private Transform _hand;
+    
+    [Header("Sounds")]
+    public AudioClip grabObjSound;
+    [SerializeField] private AudioClip dropObjSound;
+    private AudioSource audioSourceObject;
 
     private void Awake()
     {
         _objectRigidBody = GetComponent<Rigidbody>();
         _objectMeshCollider = GetComponent<MeshCollider>();
+        audioSourceObject = GetComponent<AudioSource>();
     }
     public void Grab(Transform objectGrabPointTransform)
     {
@@ -38,5 +45,10 @@ public class GrabbableObject : MonoBehaviour
             Vector3 newPosition = Vector3.Lerp(transform.position, _objectGrabPointTransform.position, Time.deltaTime * lerpSpeed);
             _objectRigidBody.MovePosition(newPosition);
         }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        audioSourceObject.PlayOneShot(dropObjSound);
     }
 }

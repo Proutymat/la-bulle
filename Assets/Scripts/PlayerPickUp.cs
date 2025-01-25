@@ -23,6 +23,8 @@ public class PlayerPickUp : MonoBehaviour
     void Update()
     {
         bool displayCanvas = false;
+        AudioSource audioSourceObject;
+        
 
         // we dont grab anything and we can grab something
         if (_grabbableObject == null)
@@ -38,7 +40,8 @@ public class PlayerPickUp : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         _grabbableObject.Grab(_objectGrabPointTransform);
-                        
+                        audioSourceObject = _grabbableObject.GetComponent<AudioSource>(); //Là recuperer
+                        audioSourceObject.PlayOneShot(_grabbableObject.grabObjSound);
                     }
                     else
                     {
@@ -66,7 +69,7 @@ public class PlayerPickUp : MonoBehaviour
         {
             _grabbableObject.Drop();
             _grabbableObject = null;
-            //La son drop
+            
         }
 
         // show press E canvas
