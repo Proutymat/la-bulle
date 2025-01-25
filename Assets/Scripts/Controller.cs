@@ -17,8 +17,6 @@ public class Controller : MonoBehaviour
     [SerializeField] private float _gravityScale = 9.81f;
     [SerializeField] private bool _canMove = true;
     [SerializeField] private float _walkSpeed = 3f;
-    [SerializeField] private float _gravity = 10f;
-    [SerializeField] private bool _useGravity = true;
 
     CharacterController characterController;
     
