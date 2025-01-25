@@ -1,33 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TeleportZone : MonoBehaviour
 {
     [SerializeField] private Transform _destination;
+    [SerializeField] private List<GameObject> _objectsToValidate = new List<GameObject>();
+    private List<GameObject> _objectsInTheHole = new List<GameObject>();
+
+    private void StoreObject(GameObject gameObject)
+    {
+        _objectsInTheHole.Add(gameObject);
+        gameObject.SetActive(false);
+    }
     
-    void OnTriggerEnter(Collider other)
+    private void PlayerInTheHole(Collider other)
+    {
+        // Teleport the player
+        other.GetComponent<CharacterController>().enabled = false;
+        other.transform.position = _destination.position;
+        other.GetComponent<CharacterController>().enabled = true;
+        
+        // Good objects in the hole
+        if (_objectsInTheHole.Count == _objectsToValidate.Count && 
+            !_objectsToValidate.Except(_objectsInTheHole).Any())
+        {
+            Debug.Log("You win!");
+            
+            // Que-ce passe t il quand le jeu est fini ?
+        }
+        // Wrong objects in the hole
+        else
+        {
+            Debug.Log("You lose!");
+            
+            // Teleport all objects to their origin position
+            for(int i = 0; i < _objectsInTheHole.Count; i++)
+            {
+                _objectsInTheHole[i].SetActive(true);
+                _objectsInTheHole[i].transform.position = _objectsInTheHole[i].GetComponent<GrabbableObject>().OriginPosition.position;
+            }
+            
+            _objectsInTheHole.Clear();
+        }
+    }
+    
+    private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<CharacterController>())
         {
-            Debug.Log("Teleporting player");
-            other.GetComponent<CharacterController>().enabled = false;
-            other.transform.position = _destination.position;
-            other.GetComponent<CharacterController>().enabled = true;
+            PlayerInTheHole(other);
         }
         else
         {
-            other.transform.position = _destination.position;
+            StoreObject(other.gameObject);
         }
-    }
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

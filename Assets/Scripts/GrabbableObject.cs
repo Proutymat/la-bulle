@@ -8,9 +8,13 @@ public class GrabbableObject : MonoBehaviour
     private MeshCollider _objectMeshCollider;
     private Transform _objectGrabPointTransform;
     [SerializeField] private float lerpSpeed = 10.0f;
+    [SerializeField] private Transform _hand;
+    
+    [SerializeField] private Transform _originPosition;
+    [SerializeField] private string objectName;
 
-    [SerializeField] private Transform _hand;	
-
+    public Transform OriginPosition { get { return _originPosition; } }
+    
     private void Awake()
     {
         _objectRigidBody = GetComponent<Rigidbody>();
@@ -28,7 +32,7 @@ public class GrabbableObject : MonoBehaviour
         this._objectGrabPointTransform = null;
         _objectRigidBody.isKinematic = false;
         _objectMeshCollider.enabled = true;
-        _objectRigidBody.AddForce(_hand.forward * 100);
+        _objectRigidBody.AddForce(_hand.forward * 150);
         
     }
     private void FixedUpdate()
