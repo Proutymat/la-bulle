@@ -367,6 +367,11 @@ MonoBehaviour:
   lowPassFilterInsideFS: 3000
   lowPassFilterOutsideFS: 5000
   ambienceBasic: {fileID: 8300000, guid: 54fbdb478e55b87499db3219fbb44e6b, type: 3}
+  maxDistance: 20
+  minDistance: 1
+  bubbleTransform: {fileID: 0}
+  constantVolume: 0.2
+  maxVolume: 0.25
   lowPassFilterInside: 1000
   lowPassFilterOutside: 5000
   duration: 0.5
@@ -577,7 +582,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 164f8c5492c566446a28d0afac557d36, type: 3}
   m_Resource: {fileID: 8300000, guid: 164f8c5492c566446a28d0afac557d36, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.65
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1151,11 +1156,11 @@ PrefabInstance:
     - target: {fileID: 2361782390563908036, guid: 7a9fce0712573b04c85be1a034358051, type: 3}
       propertyPath: dropObjSound
       value: 
-      objectReference: {fileID: 8300000, guid: 09cc21fe7a913f24885f3267523db7b6, type: 3}
+      objectReference: {fileID: 8300000, guid: 22a7045100095fb4989d2a13a07a512b, type: 3}
     - target: {fileID: 2361782390563908036, guid: 7a9fce0712573b04c85be1a034358051, type: 3}
       propertyPath: grabObjSound
       value: 
-      objectReference: {fileID: 8300000, guid: 9ab50a0fa26e32942867aa1f926ee0a2, type: 3}
+      objectReference: {fileID: 8300000, guid: 137d0c4ea6d4fbb43bb90a19ca587902, type: 3}
     - target: {fileID: 5431198723825977652, guid: 7a9fce0712573b04c85be1a034358051, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.072402
