@@ -14,6 +14,11 @@ public class PlayerSounds : MonoBehaviour
     [SerializeField] private List<AudioClip> bubbleFS;
     [SerializeField] private float volumeMinFS = 0.5f;
     [SerializeField] private float volumeMaxFS = 0.8f;
+    [SerializeField] private float minDuration = 0f;
+    [SerializeField] private float maxDuration = 1f;
+    [SerializeField] private float lowPassFilterInsideFS = 3000f;
+    [SerializeField] private float lowPassFilterOutsideFS = 5000f;
+    private float currentDuration = 0f;
     
     [Header("Ambience")]
     [SerializeField] private AudioClip ambienceBasic;
@@ -27,9 +32,8 @@ public class PlayerSounds : MonoBehaviour
     private AudioSource footstepSource;
     private AudioSource ambienceSource;
     private Controller playerController;
-
-    private float maxDuration = 1f;
-    private float currentDuration = 0f;
+    
+    
 
     private void Start()
     {
@@ -38,7 +42,7 @@ public class PlayerSounds : MonoBehaviour
         
         playerController = GetComponent<Controller>();
         currentDuration = maxDuration;
-        maxDuration = Random.Range(0.7f, 1.1f);
+        maxDuration = Random.Range(minDuration, maxDuration);
         
         ambienceSource.Play();
     }
@@ -59,37 +63,27 @@ public class PlayerSounds : MonoBehaviour
     void PlayFootSteps()
     {
         AudioClip clip = null;
-        
-        if (isPlayerInside == true)
-        {
-            clip = bubbleFS[Random.Range(0, bubbleFS.Count)];
-            footstepSource.clip = clip;
-            footstepSource.volume = Random.Range(volumeMinFS, volumeMaxFS);
-            footstepSource.pitch = Random.Range(0.8f, 1.2f);
-            footstepSource.Play();
-        }
-        else
-        {
-            clip = basicFS[Random.Range(0, basicFS.Count)];
-            footstepSource.clip = clip;
-            footstepSource.volume = Random.Range(volumeMinFS, volumeMaxFS);
-            footstepSource.pitch = Random.Range(0.8f, 1.2f);
-            footstepSource.Play();
-        }
+        clip = basicFS[Random.Range(0, basicFS.Count)]; 
+        footstepSource.clip = clip;
+        footstepSource.volume = Random.Range(volumeMinFS, volumeMaxFS); 
+        footstepSource.pitch = Random.Range(0.8f, 1.2f);
+        footstepSource.Play();
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Bubble")
         {
-                //Debug.Log("Enter");
-                StartCoroutine(PlayInsideBubble());
+            audioMixer.SetFloat("lowPassFilterFS", lowPassFilterInsideFS);
+            audioMixer.SetFloat("lowPassFilterBreath", lowPassFilterInsideFS);
+            StartCoroutine(PlayInsideBubble());
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Bubble")
         {
-            //Debug.Log("Exit");
+            audioMixer.SetFloat("lowPassFilterFS", lowPassFilterOutsideFS);
+            audioMixer.SetFloat("lowPassFilterBreath", lowPassFilterOutsideFS);
             ambienceSource.Play();
             StartCoroutine(PlayOutsideBubble());
         }
