@@ -204,7 +204,7 @@ Transform:
   m_GameObject: {fileID: 53642753}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7399999, y: -0.9200001, z: 4.96}
+  m_LocalPosition: {x: -0.7399999, y: -0.9200001, z: 6.71}
   m_LocalScale: {x: 7.8774257, y: 7.8774257, z: 7.8774257}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -348,6 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2d87dc39b734424e96eeacb0cc068d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: c3bfbccd2db6b1e43b528bd6887698d0, type: 2}
   basicFS:
   - {fileID: 8300000, guid: 8cc7223b13cc451429bb29fc14ef5f5f, type: 3}
   - {fileID: 8300000, guid: abc7615ee6998074f9777811b53261be, type: 3}
@@ -355,16 +356,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 09ea1dcfa945c0f4793aed93f48a450f, type: 3}
   - {fileID: 8300000, guid: 534fc2797193f034691fc425b637c5fd, type: 3}
   - {fileID: 8300000, guid: ab0b54865309bfd468de42ab0a348df8, type: 3}
-  volumeMinFS: 0.8
-  volumeMaxFS: 0.12
+  volumeMinFS: 0.05
+  volumeMaxFS: 0.08
   ambienceBasic: {fileID: 8300000, guid: 54fbdb478e55b87499db3219fbb44e6b, type: 3}
-  ambienceBubble: {fileID: 8300000, guid: 380d2a6778c192c45b8fb7d736c2607d, type: 3}
-  maxDistance: 20
-  minDistance: 5
-  bubbleTransform: {fileID: 928261033}
-  constantVolume: 0.2
-  maxVolume: 0.35
-  noSound: 0
+  lowPassFilterInside: 1000
+  lowPassFilterOutside: 5000
+  duration: 0.5
 --- !u!82 &416163408
 AudioSource:
   m_ObjectHideFlags: 0
@@ -471,11 +468,11 @@ AudioSource:
   m_GameObject: {fileID: 416163397}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7735503065522752117, guid: c3bfbccd2db6b1e43b528bd6887698d0, type: 2}
   m_audioClip: {fileID: 8300000, guid: 54fbdb478e55b87499db3219fbb44e6b, type: 3}
   m_Resource: {fileID: 8300000, guid: 54fbdb478e55b87499db3219fbb44e6b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -572,7 +569,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 55daff824c211cf4b9158e13a7c227ce, type: 3}
   m_Resource: {fileID: 8300000, guid: 55daff824c211cf4b9158e13a7c227ce, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.8
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -852,7 +849,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5000001
+  m_Radius: 0.45
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
@@ -918,7 +915,7 @@ Transform:
   m_GameObject: {fileID: 928261029}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.74, y: -0.92, z: 4.96}
+  m_LocalPosition: {x: -0.74, y: -0.92, z: 6.71}
   m_LocalScale: {x: 7.8308883, y: 0.29476, z: 7.8308883}
   m_ConstrainProportionsScale: 0
   m_Children: []

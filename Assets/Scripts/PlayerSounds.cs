@@ -1,11 +1,15 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.Audio;
+using UnityEngine.Video;
 
 public class PlayerSounds : MonoBehaviour
 {
     [Header("Footsteps")]
+    [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private List<AudioClip> basicFS;
     [SerializeField] private List<AudioClip> bubbleFS;
     [SerializeField] private float volumeMinFS = 0.5f;
@@ -13,13 +17,10 @@ public class PlayerSounds : MonoBehaviour
     
     [Header("Ambience")]
     [SerializeField] private AudioClip ambienceBasic;
-    [SerializeField] private AudioClip ambienceBubble;
-    [SerializeField] private float maxDistance = 20f; //max distance to hear sound
-    [SerializeField] private float minDistance = 1f;
-    [SerializeField] private Transform bubbleTransform;
-    [SerializeField] private float constantVolume = 0.25f; //constant value if in bubble
-    [SerializeField] private float maxVolume = 0.35f; //max volume if outside bubble
-    [SerializeField] private bool noSound = false;
+    
+    [SerializeField] private float lowPassFilterInside = 1000f;
+    [SerializeField] private float lowPassFilterOutside = 5000f;
+    [SerializeField] private float duration = 2f;
 
     private bool isPlayerInside = false; //IsPlayerInside Bubble
     
@@ -54,18 +55,6 @@ public class PlayerSounds : MonoBehaviour
                 currentDuration = maxDuration;
             }
         }
-        if (isPlayerInside == true)
-        {
-            ambienceSource.volume = constantVolume;
-        }
-        else
-        {
-            float distance = Vector3.Distance(bubbleTransform.position, transform.position);
-
-            float volume = Mathf.Clamp01(1 - (distance - minDistance) / (maxDistance - minDistance));
-
-            ambienceSource.volume = volume * maxVolume;
-        }
     }
     void PlayFootSteps()
     {
@@ -92,17 +81,8 @@ public class PlayerSounds : MonoBehaviour
     {
         if (other.tag == "Bubble")
         {
-            if (noSound == true)
-            {
-                ambienceSource.Stop();
-            }
-            else
-            {
                 //Debug.Log("Enter");
-                ambienceSource.clip = ambienceBubble;
-                ambienceSource.Play();
-                isPlayerInside = true;
-            }
+                StartCoroutine(PlayInsideBubble());
         }
     }
     private void OnTriggerExit(Collider other)
@@ -110,9 +90,37 @@ public class PlayerSounds : MonoBehaviour
         if (other.tag == "Bubble")
         {
             //Debug.Log("Exit");
-            ambienceSource.clip = ambienceBasic;
             ambienceSource.Play();
-            isPlayerInside = false;
+            StartCoroutine(PlayOutsideBubble());
+        }
+    }
+    
+    private IEnumerator PlayInsideBubble()
+    {
+        float currentTime = 0;
+        float currentVol;
+        audioMixer.GetFloat("lowPassFilter", out currentVol);
+        Debug.Log(currentVol);
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            float newVol = Mathf.Lerp(currentVol, lowPassFilterInside, currentTime / duration);
+            audioMixer.SetFloat("lowPassFilter", newVol);
+            yield return null;
+        }
+    }
+    private IEnumerator PlayOutsideBubble()
+    {
+        float currentTime = 0;
+        float currentVol;
+        audioMixer.GetFloat("lowPassFilter", out currentVol);
+        Debug.Log(currentVol);
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            float newVol = Mathf.Lerp(currentVol, lowPassFilterOutside, currentTime / duration);
+            audioMixer.SetFloat("lowPassFilter", newVol);
+            yield return null;
         }
     }
 }
