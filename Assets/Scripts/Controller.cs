@@ -5,7 +5,7 @@ public class Controller : MonoBehaviour
 {
     [SerializeField] private Camera _playerCamera;
 
-    private bool _isWalking;
+    public bool _isWalking;
     
     // Rotation Settings
     [SerializeField] private float _lookSpeed = 2f;

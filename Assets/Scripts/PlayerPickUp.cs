@@ -38,6 +38,7 @@ public class PlayerPickUp : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         _grabbableObject.Grab(_objectGrabPointTransform);
+                        
                     }
                     else
                     {
@@ -65,6 +66,7 @@ public class PlayerPickUp : MonoBehaviour
         {
             _grabbableObject.Drop();
             _grabbableObject = null;
+            //La son drop
         }
 
         // show press E canvas
