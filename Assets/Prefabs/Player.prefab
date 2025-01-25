@@ -160,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerCamera: {fileID: 4769436443972809150}
   _lookSpeed: 2
-  _lookXTopLimit: 45
+  _lookXTopLimit: 55
   _lookXBotLimit: 55
   _gravityScale: 9.81
   _canMove: 1

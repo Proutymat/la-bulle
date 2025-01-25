@@ -9,7 +9,7 @@ public class Controller : MonoBehaviour
     
     // Rotation Settings
     [SerializeField] private float _lookSpeed = 2f;
-    [SerializeField] private float _lookXTopLimit = 45f;
+    [SerializeField] private float _lookXTopLimit = 55f;
     [SerializeField] private float _lookXBotLimit = 55f;
     float rotationX = 0f;
     
