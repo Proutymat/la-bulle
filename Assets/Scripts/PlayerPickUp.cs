@@ -136,25 +136,26 @@ public class PlayerPickUp : MonoBehaviour
             {
                 if (_grabbableObject.ObjectName == "Tape1")
                 {
+                    Debug.Log("Playing tape 1");
                     audioSourceMagnetophone = _magnetoscope.GetComponent<AudioSource>();
                     audioSourceMagnetophone.PlayOneShot(cassette[0]);
                     ConsumeObject();
                 }
                 else if (_grabbableObject.ObjectName == "Tape2")
                 {
-                    audioSourceMagnetophone = _grabbableObject.GetComponent<AudioSource>();
+                    audioSourceMagnetophone = _magnetoscope.GetComponent<AudioSource>();
                     audioSourceMagnetophone.PlayOneShot(cassette[1]);
                     ConsumeObject();
                 }
                 else if (_grabbableObject.ObjectName == "Tape3")
                 {
-                    audioSourceMagnetophone = _grabbableObject.GetComponent<AudioSource>();
+                    audioSourceMagnetophone = _magnetoscope.GetComponent<AudioSource>();
                     audioSourceMagnetophone.PlayOneShot(cassette[2]);
                     ConsumeObject();
                 }
                 else if (_grabbableObject.ObjectName == "Tape4")
                 {
-                    audioSourceMagnetophone = _grabbableObject.GetComponent<AudioSource>();
+                    audioSourceMagnetophone = _magnetoscope.GetComponent<AudioSource>();
                     audioSourceMagnetophone.PlayOneShot(cassette[3]);
                     ConsumeObject();
                 }
