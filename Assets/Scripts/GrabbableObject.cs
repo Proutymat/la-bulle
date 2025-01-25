@@ -11,9 +11,10 @@ public class GrabbableObject : MonoBehaviour
     [SerializeField] private Transform _hand;
     
     [SerializeField] private Transform _originPosition;
-    [SerializeField] private string objectName;
+    [SerializeField] private string _objectName;
 
     public Transform OriginPosition { get { return _originPosition; } }
+    public string ObjectName { get { return _objectName; } }
     
     private void Awake()
     {

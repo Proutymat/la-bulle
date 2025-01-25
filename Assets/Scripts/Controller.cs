@@ -3,10 +3,6 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Controller : MonoBehaviour
 {
-    [SerializeField] private Camera _playerCamera;
-
-    private bool _isWalking;
-    
     // Rotation Settings
     [SerializeField] private float _lookSpeed = 2f;
     [SerializeField] private float _lookXTopLimit = 55f;
@@ -19,6 +15,9 @@ public class Controller : MonoBehaviour
     [SerializeField] private float _walkSpeed = 3f;
 
     CharacterController characterController;
+    [SerializeField] private Camera _playerCamera;
+    private bool _isWalking = false;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -47,5 +46,7 @@ public class Controller : MonoBehaviour
         }
         
 		_isWalking = !(Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0);
+        
+        
     }
 }
