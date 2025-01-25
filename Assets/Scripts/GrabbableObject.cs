@@ -27,8 +27,9 @@ public class GrabbableObject : MonoBehaviour
     {
         this._objectGrabPointTransform = null;
         _objectRigidBody.isKinematic = false;
-        _objectRigidBody.AddForce(_hand.forward * 100);
         _objectMeshCollider.enabled = true;
+        _objectRigidBody.AddForce(_hand.forward * 100);
+        
     }
 
     private void FixedUpdate()
