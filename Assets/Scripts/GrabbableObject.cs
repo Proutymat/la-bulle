@@ -51,8 +51,8 @@ public class GrabbableObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        audioSourceObject.volume = Random.Range(0.75f, 0.10f); 
-        audioSourceObject.pitch = Random.Range(0.8f, 1.2f);
+        audioSourceObject.volume = Random.Range(0.75f, 0.95f); 
+        audioSourceObject.pitch = Random.Range(0.8f, 1f);
         audioSourceObject.PlayOneShot(dropObjSound);
     }
 }
