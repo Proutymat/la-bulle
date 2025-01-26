@@ -124,12 +124,15 @@ public class PlayerPickUp : MonoBehaviour
     private void HandleInteractiblesObjects()
     {
         AudioSource audioSourceMagnetophone;
+        Animator animatorMagnetophone;
         // Is the player looking at a magnetophone
         if (DetectMagnetophone())
         {
             if (_grabbableObject == null)
             {
                 Debug.Log("No object in hand");
+                animatorMagnetophone = _magnetoscope.GetComponent<Animator>();
+                animatorMagnetophone.SetTrigger("hasError");
                 audioSourceMagnetophone = _magnetoscope.GetComponent<AudioSource>();
                 audioSourceMagnetophone.PlayOneShot(cassette[0]);
             }
@@ -138,24 +141,35 @@ public class PlayerPickUp : MonoBehaviour
                 if (_grabbableObject.ObjectName == "Tape1")
                 {
                     Debug.Log("Playing tape 1");
+                    animatorMagnetophone = _magnetoscope.GetComponent<Animator>();
+                    animatorMagnetophone.SetTrigger("hasTape");
                     audioSourceMagnetophone = _magnetoscope.GetComponent<AudioSource>();
                     audioSourceMagnetophone.PlayOneShot(cassette[1]);
                     ConsumeObject();
+                    StartCoroutine(WaitForClipToEnd(cassette[1].length));
                 }
                 else if (_grabbableObject.ObjectName == "Tape2")
                 {
+                    animatorMagnetophone = _magnetoscope.GetComponent<Animator>();
+                    animatorMagnetophone.SetTrigger("hasTape");
                     audioSourceMagnetophone = _magnetoscope.GetComponent<AudioSource>();
                     audioSourceMagnetophone.PlayOneShot(cassette[2]);
                     ConsumeObject();
+                    StartCoroutine(WaitForClipToEnd(cassette[2].length));
+                    
                 }
                 else if (_grabbableObject.ObjectName == "Tape3")
                 {
+                    animatorMagnetophone = _magnetoscope.GetComponent<Animator>();
+                    animatorMagnetophone.SetTrigger("hasTape");
                     audioSourceMagnetophone = _magnetoscope.GetComponent<AudioSource>();
                     audioSourceMagnetophone.PlayOneShot(cassette[3]);
                     ConsumeObject();
                 }
                 else if (_grabbableObject.ObjectName == "Tape4")
                 {
+                    animatorMagnetophone = _magnetoscope.GetComponent<Animator>();
+                    animatorMagnetophone.SetTrigger("hasTape");
                     audioSourceMagnetophone = _magnetoscope.GetComponent<AudioSource>();
                     audioSourceMagnetophone.PlayOneShot(cassette[4]);
                     ConsumeObject();
@@ -179,5 +193,13 @@ public class PlayerPickUp : MonoBehaviour
         }
         
         HandleGrabbableObjects();
+    }
+    
+    private IEnumerator WaitForClipToEnd(float duration)
+    {
+        Animator animatorMagnetophone;
+        animatorMagnetophone = _magnetoscope.GetComponent<Animator>();
+        yield return new WaitForSeconds(duration);
+        animatorMagnetophone.SetTrigger("hasFinishAudio");
     }
 }
