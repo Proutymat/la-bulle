@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7498110925606279945}
   - component: {fileID: 691394939111266696}
   - component: {fileID: 3208819558646642280}
-  - component: {fileID: 9081047790441151499}
+  - component: {fileID: 7825676432504565905}
   m_Layer: 7
   m_Name: WaffleMesh
   m_TagString: Untagged
@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149155446097}
-  m_Mesh: {fileID: 1353746659569323740, guid: 0122f284f58feb442b1be7ae39775cfd, type: 3}
+  m_Mesh: {fileID: 1353746659569323740, guid: f882564ea0a130747b71e61a0d030e55, type: 3}
 --- !u!23 &-7511558181221131132
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -156,8 +156,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 0.2
+  MaxDistance: 1
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -192,7 +192,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -232,7 +232,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!65 &9081047790441151499
+--- !u!65 &7825676432504565905
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -251,5 +251,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.0023220466, y: 0.0037620727, z: 0.00079533353}
+  m_Size: {x: 0.0016273012, y: 0.0026364785, z: 0.00066058186}
   m_Center: {x: 0, y: 2.3283064e-10, z: -1.1641532e-10}
