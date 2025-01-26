@@ -16,6 +16,9 @@ public class BubbleBehaviour : MonoBehaviour
     [SerializeField] private AnimationCurve _powerFadeOut = AnimationCurve.Linear(0, 0, 1, 1);
     [SerializeField] private AnimationCurve _transiFadeOut = AnimationCurve.Linear(0, 0, 1, 1);
 
+    [SerializeField] private Transform _magnetoEndTransform = null;
+    [SerializeField]  private Magnetophone _magnetophone;
+
     private Controller _controller;
     private bool _isWin = false;
 
@@ -45,6 +48,7 @@ public class BubbleBehaviour : MonoBehaviour
     public void OnWin()
     {
         _isWin = true;
+        _magnetophone.PlayEnd(_magnetoEndTransform);
         //_blackAndWhiteMat.SetFloat("_TransitionColor",1);
         _outerBubble.DOFloat(0, "_TransiFadeOut", 5).SetEase(_transiFadeOut);
         _innerBubble.DOFloat(0, "_TransiFadeOut", 5).SetEase(_transiFadeOut);

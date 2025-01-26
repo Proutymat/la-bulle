@@ -76,6 +76,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 480e2832bfeb66249926939ffacc4f77, type: 3}
       insertIndex: -1
       addedObject: {fileID: -7907450397555749687}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 480e2832bfeb66249926939ffacc4f77, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4148778203797615127}
   m_SourcePrefab: {fileID: 100100000, guid: 480e2832bfeb66249926939ffacc4f77, type: 3}
 --- !u!1 &8205104823257208939 stripped
 GameObject:
@@ -145,7 +148,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerpSpeed: 10
   _hand: {fileID: 0}
-  _originPosition: {fileID: 0}
   _objectName: Bowling
   grabObjSound: {fileID: 8300000, guid: 137d0c4ea6d4fbb43bb90a19ca587902, type: 3}
   dropObjSound: {fileID: 8300000, guid: 22a7045100095fb4989d2a13a07a512b, type: 3}
@@ -246,3 +248,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &-4148778203797615127
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8205104823257208939}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.0043
+  m_Center: {x: 0, y: 0, z: 0}
