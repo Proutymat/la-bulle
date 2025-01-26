@@ -41,6 +41,11 @@ public class GrabbableObject : MonoBehaviour
         _objectRigidBody.AddForce(_hand.forward * 150);
         
     }
+
+    public void StopGrap() 
+    {
+        this._objectGrabPointTransform = null;
+    }
     private void FixedUpdate()
     {
         if (_objectGrabPointTransform != null)
