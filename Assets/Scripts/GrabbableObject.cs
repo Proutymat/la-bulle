@@ -21,6 +21,16 @@ public class GrabbableObject : MonoBehaviour
     public AudioClip grabObjSound;
     [SerializeField] private AudioClip dropObjSound;
     private AudioSource audioSourceObject;
+    [SerializeField] private Collider _triggerCollider;
+    public void SetTriggerCollider(bool triggerCollider)
+    {
+        if(_triggerCollider == null) 
+        {
+            Collider[] collids = GetComponents<Collider>();
+            _triggerCollider = collids[0].isTrigger ? collids[0] : collids[1];
+        }
+        _triggerCollider.enabled = triggerCollider;
+    }
 
     private void Awake()
     {
@@ -28,10 +38,16 @@ public class GrabbableObject : MonoBehaviour
         audioSourceObject = GetComponent<AudioSource>();
         _originPosition = transform.position;
     }
+    private void Start()
+    {
+        Collider[] collids = GetComponents<Collider>();
+        _triggerCollider = collids[0].isTrigger ? collids[0] : collids[1];
+    }
     public void Grab(Transform objectGrabPointTransform)
     {
         this._objectGrabPointTransform = objectGrabPointTransform;
         _objectRigidBody.isKinematic = true;
+        SetTriggerCollider(false);
     }
     
     public void Drop()
@@ -39,7 +55,7 @@ public class GrabbableObject : MonoBehaviour
         this._objectGrabPointTransform = null;
         _objectRigidBody.isKinematic = false;
         _objectRigidBody.AddForce(_hand.forward * 150);
-        
+        SetTriggerCollider(true);
     }
 
     public void StopGrap() 

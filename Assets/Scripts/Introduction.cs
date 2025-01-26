@@ -17,7 +17,6 @@ public class Introduction : MonoBehaviourSingleton<Introduction>
 
     private void Start()
     {
-        introSource.Play();
     }
 
     void Enable()

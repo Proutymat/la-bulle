@@ -47,7 +47,8 @@ public class Magnetophone : MonoBehaviour
     {
         Rigidbody rb = currentTape.GetComponent<Rigidbody>();
         currentTape.SetActive(true);
-        currentTape.GetComponent<GrabbableObject>().Drop();
+        currentTape.GetComponent<GrabbableObject>().StopGrap();
+        currentTape.GetComponent<GrabbableObject>().SetTriggerCollider(true);
         rb.isKinematic = false;
         rb.AddForce(_mouthPosition.forward * 150);
         currentTape = null;

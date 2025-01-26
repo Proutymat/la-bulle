@@ -107,7 +107,6 @@ public class PlayerPickUp : MonoBehaviour
         {
             if (hit.collider.gameObject.GetComponent<Magnetophone>())
             {
-                
                 return true;
             }
         }
