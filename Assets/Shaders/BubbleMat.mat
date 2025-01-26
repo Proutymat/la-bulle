@@ -67,6 +67,7 @@ Material:
     - _FresnelPow: 3.26
     - _FresnelWhite: 4.84
     - _IOR: 0.9
+    - _IsBaked: 1
     - _NoiseScale: 5.06
     - _QueueControl: 0
     - _QueueOffset: 0
