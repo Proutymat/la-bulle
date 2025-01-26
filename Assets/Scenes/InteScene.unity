@@ -2883,6 +2883,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1945103879923314563, guid: 71311434dbc5e8743a04e71caa7844b8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945103879923314563, guid: 71311434dbc5e8743a04e71caa7844b8, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -432.5
       objectReference: {fileID: 0}
@@ -3238,6 +3242,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 458032832}
   m_SourcePrefab: {fileID: 100100000, guid: 41f63a010f0bdec419a9ab40f2f9df2c, type: 3}
+--- !u!1 &879400488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: faf9f382db9973343b49f2bd1aa5ea99, type: 3}
+  m_PrefabInstance: {fileID: 42712069}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &881462702 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 41f63a010f0bdec419a9ab40f2f9df2c, type: 3}
@@ -3285,15 +3294,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 277ebb878a4252a468a5adaf2330e3ac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.446075
+      value: 15.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 277ebb878a4252a468a5adaf2330e3ac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.83
+      value: 4.52
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 277ebb878a4252a468a5adaf2330e3ac, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -47.179256
+      value: -12.19
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 277ebb878a4252a468a5adaf2330e3ac, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3418,6 +3427,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0fc9f01f101558041a02ff94ec4a9266, type: 3}
   m_PrefabInstance: {fileID: 913968293}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &917239445 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1228985694686261765, guid: a56e8fa0654364341b2a90f510264db7, type: 3}
+  m_PrefabInstance: {fileID: 1697759581}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &955327509
 GameObject:
@@ -5419,16 +5433,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 812285829484246129, guid: b0ca4e711976d634f8aacd0af737167c, type: 3}
       propertyPath: _objectsToValidate.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 812285829484246129, guid: b0ca4e711976d634f8aacd0af737167c, type: 3}
       propertyPath: '_objectsToValidate.Array.data[0]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2090301089}
     - target: {fileID: 812285829484246129, guid: b0ca4e711976d634f8aacd0af737167c, type: 3}
       propertyPath: '_objectsToValidate.Array.data[1]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 879400488}
+    - target: {fileID: 812285829484246129, guid: b0ca4e711976d634f8aacd0af737167c, type: 3}
+      propertyPath: '_objectsToValidate.Array.data[2]'
+      value: 
+      objectReference: {fileID: 917239445}
     - target: {fileID: 2750621872551603186, guid: b0ca4e711976d634f8aacd0af737167c, type: 3}
       propertyPath: m_Name
       value: TeleportZone
@@ -5908,6 +5926,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 130306907}
   m_SourcePrefab: {fileID: 100100000, guid: 41f63a010f0bdec419a9ab40f2f9df2c, type: 3}
+--- !u!1 &2090301089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 277ebb878a4252a468a5adaf2330e3ac, type: 3}
+  m_PrefabInstance: {fileID: 912732603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2094800513
 PrefabInstance:
   m_ObjectHideFlags: 0

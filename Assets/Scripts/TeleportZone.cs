@@ -14,7 +14,13 @@ public class TeleportZone : MonoBehaviour
         _objectsInTheHole.Add(gameObject);
         gameObject.SetActive(false);
     }
-    
+
+    private BubbleBehaviour _bubbleBehaviour;
+    private void Start()
+    {
+        _bubbleBehaviour = GameObject.FindFirstObjectByType<BubbleBehaviour>();
+    }
+
     private void PlayerInTheHole(Collider other)
     {
         // Teleport the player
@@ -22,28 +28,14 @@ public class TeleportZone : MonoBehaviour
         other.transform.position = _destination.position;
         other.GetComponent<CharacterController>().enabled = true;
         
-        // Good objects in the hole
-        if (_objectsInTheHole.Count == _objectsToValidate.Count && 
-            !_objectsToValidate.Except(_objectsInTheHole).Any())
+        // Teleport all objects to their origin position
+        for(int i = 0; i < _objectsInTheHole.Count; i++)
         {
-            Debug.Log("You win!");
-            
-            // Que-ce passe t il quand le jeu est fini ?
+            _objectsInTheHole[i].SetActive(true);
+            _objectsInTheHole[i].transform.position = _objectsInTheHole[i].GetComponent<GrabbableObject>().OriginPosition.position;
         }
-        // Wrong objects in the hole
-        else
-        {
-            Debug.Log("You lose!");
-            
-            // Teleport all objects to their origin position
-            for(int i = 0; i < _objectsInTheHole.Count; i++)
-            {
-                _objectsInTheHole[i].SetActive(true);
-                _objectsInTheHole[i].transform.position = _objectsInTheHole[i].GetComponent<GrabbableObject>().OriginPosition.position;
-            }
-            
-            _objectsInTheHole.Clear();
-        }
+        
+        _objectsInTheHole.Clear();
     }
     
     private void OnTriggerEnter(Collider other)
@@ -55,6 +47,14 @@ public class TeleportZone : MonoBehaviour
         else
         {
             StoreObject(other.gameObject);
+            Debug.Log("Object in the hole");
+            // Good objects in the hole
+            if (_objectsInTheHole.Count == _objectsToValidate.Count && 
+                !_objectsToValidate.Except(_objectsInTheHole).Any())
+            {
+                Debug.Log("Win");
+                _bubbleBehaviour.OnWin();
+            }
         }
     }
 }
