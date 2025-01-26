@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2361782390563908036}
   - component: {fileID: 188196848436009070}
   - component: {fileID: 8041158689024129883}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GrabbableCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,9 @@ MonoBehaviour:
   lerpSpeed: 10
   _hand: {fileID: 0}
   _originPosition: {fileID: 0}
-  objectName: TestCube
+  _objectName: 
+  grabObjSound: {fileID: 0}
+  dropObjSound: {fileID: 0}
 --- !u!54 &188196848436009070
 Rigidbody:
   m_ObjectHideFlags: 0
