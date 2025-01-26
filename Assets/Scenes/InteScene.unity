@@ -2127,6 +2127,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaffleMesh
       objectReference: {fileID: 0}
+    - target: {fileID: 3208819558646642280, guid: faf9f382db9973343b49f2bd1aa5ea99, type: 3}
+      propertyPath: MaxDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208819558646642280, guid: faf9f382db9973343b49f2bd1aa5ea99, type: 3}
+      propertyPath: MinDistance
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9081047790441151499, guid: faf9f382db9973343b49f2bd1aa5ea99, type: 3}
     m_RemovedGameObjects: []
@@ -2758,6 +2766,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1945103879923314563, guid: 71311434dbc5e8743a04e71caa7844b8, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945103879923314563, guid: 71311434dbc5e8743a04e71caa7844b8, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1945103879923314563, guid: 71311434dbc5e8743a04e71caa7844b8, type: 3}
