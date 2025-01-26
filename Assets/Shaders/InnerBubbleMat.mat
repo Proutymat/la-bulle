@@ -51,6 +51,7 @@ Material:
     - _FresnelPower: 0.02
     - _FresnelWhite: 0
     - _IOR: 0
+    - _IsBake: 0
     - _QueueControl: 1
     - _QueueOffset: 0
     - _ScaleAlpha: 0.39
