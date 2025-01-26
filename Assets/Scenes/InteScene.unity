@@ -13547,7 +13547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4302142106773803386, guid: 71311434dbc5e8743a04e71caa7844b8, type: 3}
       propertyPath: m_Antialiasing
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5720894009833580104, guid: 71311434dbc5e8743a04e71caa7844b8, type: 3}
       propertyPath: _magnetoscope
