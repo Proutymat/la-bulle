@@ -210,6 +210,7 @@ MonoBehaviour:
   _pickUpDistance: 2
   _interactingDistance: 2
   cassette:
+  - {fileID: 8300000, guid: ec6349890f681704694ee21d08090ab3, type: 3}
   - {fileID: 8300000, guid: d49a981736e19384489ca41302aa3def, type: 3}
   - {fileID: 8300000, guid: ed8a4ea2cf6803f40805d212b3ae7558, type: 3}
   - {fileID: 8300000, guid: f8f36d05ca159894a94f1ebd81e19143, type: 3}
