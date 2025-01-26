@@ -18,6 +18,7 @@ public class Controller : MonoBehaviour
     [SerializeField] private Camera _playerCamera;
     private bool _isWalking = false;
     
+    public bool isCinematic = true;
     public bool IsWalking { get { return _isWalking; } }
     
     
@@ -32,6 +33,7 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(isCinematic == true)return;
         // Handle movement
         Vector3 forward = transform.forward;
     	Vector3 moveDirection = new Vector3(_walkSpeed * Input.GetAxis("Horizontal"), -_gravityScale, _walkSpeed * Input.GetAxis("Vertical"));

@@ -652,6 +652,30 @@ MonoBehaviour:
   lowPassFilterInsideFS: 3000
   lowPassFilterOutsideFS: 5000
   ambienceBasic: {fileID: 8300000, guid: 54fbdb478e55b87499db3219fbb44e6b, type: 3}
+  _ambianceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   maxDistance: 20
   minDistance: 1
   bubbleTransform: {fileID: 928261033}
@@ -1958,6 +1982,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4622533156258572535, guid: 571d170e0495317428c7b611221355f5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: dc1fa787494bd934e9e88bb6e765fb05, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1971,6 +1999,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1988055821647117429, guid: 4623194e42949a84e9d2243ab4e9506a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: dc1fa787494bd934e9e88bb6e765fb05, type: 2}
     - target: {fileID: 5956233054311177241, guid: 4623194e42949a84e9d2243ab4e9506a, type: 3}
       propertyPath: m_Name
       value: Frame03
@@ -2072,6 +2104,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7509872597665230737, guid: 6449841d393818944a92ef5ae6e80ccb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bca52152939ff0d4d851a70903f6401a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -38,6 +38,8 @@ public class PlayerSounds : MonoBehaviour
     private AudioSource footstepSource;
     private AudioSource ambienceSource;
     private Controller playerController;
+    
+    public bool isCinematic = true;
 
     private void Start()
     {
@@ -53,6 +55,7 @@ public class PlayerSounds : MonoBehaviour
 
     private void Update()
     {
+        if(isCinematic == true)return;
         if (playerController.IsWalking == true)
         {
             currentDuration -= Time.deltaTime;
