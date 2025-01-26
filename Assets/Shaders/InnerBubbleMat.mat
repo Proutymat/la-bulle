@@ -52,11 +52,14 @@ Material:
     - _FresnelWhite: 0
     - _IOR: 0
     - _IsBake: 0
+    - _NoiseFinalScale: 21.64
+    - _PowerNoise: 1
     - _QueueControl: 1
     - _QueueOffset: 0
     - _ScaleAlpha: 0.39
     - _SizeTransparentHoles: 0.13
     - _SpeedRotation: 0.48
+    - _TransiFadeOut: 50
     - _TransitionVisible: 0
     - _YAccuracy: 0.4
     m_Colors:
