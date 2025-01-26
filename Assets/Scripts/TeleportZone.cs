@@ -8,6 +8,7 @@ public class TeleportZone : MonoBehaviour
     [SerializeField] private Transform _destination;
     [SerializeField] private List<GameObject> _objectsToValidate = new List<GameObject>();
     private List<GameObject> _objectsInTheHole = new List<GameObject>();
+    private CharacterController _controller;
 
     private void StoreObject(GameObject gameObject)
     {
@@ -19,14 +20,15 @@ public class TeleportZone : MonoBehaviour
     private void Start()
     {
         _bubbleBehaviour = GameObject.FindFirstObjectByType<BubbleBehaviour>();
+        _controller = GameObject.FindFirstObjectByType<CharacterController>();
     }
 
-    private void PlayerInTheHole(Collider other)
+    private void PlayerInTheHole(CharacterController chara)
     {
         // Teleport the player
-        other.GetComponent<CharacterController>().enabled = false;
-        other.transform.position = _destination.position;
-        other.GetComponent<CharacterController>().enabled = true;
+        chara.enabled = false;
+        chara.transform.position = _destination.position;
+        chara.enabled = true;
 
         // Teleport all objects to their origin position
         for (int i = 0; i < _objectsInTheHole.Count; i++)
@@ -38,20 +40,30 @@ public class TeleportZone : MonoBehaviour
         _objectsInTheHole.Clear();
     }
 
+    private void Update()
+    {
+        if(_controller.transform.position.y <= transform.position.y)
+        {
+            PlayerInTheHole(_controller);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<CharacterController>())
         {
-            PlayerInTheHole(other);
+            return;
         }
         else
         {
+            if(_objectsInTheHole.Contains(other.gameObject))
+                return;
             StoreObject(other.gameObject);
             // Good objects in the hole
             if (_objectsInTheHole.Count == _objectsToValidate.Count &&
                 !_objectsToValidate.Except(_objectsInTheHole).Any())
             {
-                //Debug.Log("Win");
+                Debug.Log("Win");
                 _bubbleBehaviour.OnWin();
             }
         }

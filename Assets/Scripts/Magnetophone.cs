@@ -45,6 +45,8 @@ public class Magnetophone : MonoBehaviour
     }
     public void Drop()
     {
+        if (currentTape == null)
+            return;
         Rigidbody rb = currentTape.GetComponent<Rigidbody>();
         currentTape.SetActive(true);
         currentTape.GetComponent<GrabbableObject>().StopGrap();
