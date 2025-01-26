@@ -206,10 +206,16 @@ MonoBehaviour:
   _objectGrabPointTransform: {fileID: 4679181166234056450}
   _pickUpLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   _pickUpDistance: 2
   _interactingDistance: 2
+  cassette:
+  - {fileID: 8300000, guid: d49a981736e19384489ca41302aa3def, type: 3}
+  - {fileID: 8300000, guid: ed8a4ea2cf6803f40805d212b3ae7558, type: 3}
+  - {fileID: 8300000, guid: f8f36d05ca159894a94f1ebd81e19143, type: 3}
+  - {fileID: 8300000, guid: 6a2d8f8e057006d48bf55e6464380d09, type: 3}
   _pressECanvas: {fileID: 1625029064981196856}
+  _magnetoscope: {fileID: 7216279578795664873, guid: 5eccbd5cc7fb5b544867196287adefd8, type: 3}
 --- !u!1 &6722328048579314351
 GameObject:
   m_ObjectHideFlags: 0

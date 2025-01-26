@@ -11,19 +11,27 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: ff738eb5cf0bdd8459157cf42d56983b, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Transparent
   disabledShaderPasses:
   - MOTIONVECTORS
+  - DepthOnly
+  - SHADOWCASTER
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Cubemap:
+        m_Texture: {fileID: 8900000, guid: 7d918b16b56082e48b5c0819027a6d88, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ReflexionMap:
         m_Texture: {fileID: 8900000, guid: f8c759571fdb3c4419b453048412d6ac, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -46,19 +54,31 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DeformationColorScale: 7.09
-    - _DeformationForce: 0.29
-    - _DeformationScale: 0.59
+    - _AlphaClip: 0
+    - _AlphaToMask: 0
+    - _Blend: 0
+    - _CastShadows: 0
+    - _Cull: 2
+    - _DeformationColorScale: 2.8
+    - _DeformationForce: 0.005
+    - _DeformationScale: 18.88
     - _DisplacementNoiseForce: 0.01
+    - _DstBlend: 10
     - _FresnelPow: 3.26
-    - _FresnelWhite: 3.35
+    - _FresnelWhite: 4.84
     - _IOR: 0.9
     - _NoiseScale: 5.06
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smooth: 0.02
-    - _SpeedRotation: 0.66
+    - _SpeedRotation: 0.2
+    - _SrcBlend: 5
+    - _Surface: 1
+    - _TransitionVisible: 1
     - _YAccuracy: 0.9
+    - _ZTest: 4
+    - _ZWrite: 0
+    - _ZWriteControl: 0
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
