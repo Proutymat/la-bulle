@@ -11,10 +11,10 @@ public class GrabbableObject : MonoBehaviour
     [SerializeField] private float lerpSpeed = 10.0f;
     [SerializeField] private Transform _hand;
     
-    [SerializeField] private Transform _originPosition;
+    private Vector3 _originPosition;
     [SerializeField] private string _objectName;
 
-    public Transform OriginPosition { get { return _originPosition; } }
+    public Vector3 OriginPosition { get { return _originPosition; } }
     public string ObjectName { get { return _objectName; } }
     
     [Header("Sounds")]
@@ -26,6 +26,7 @@ public class GrabbableObject : MonoBehaviour
     {
         _objectRigidBody = GetComponent<Rigidbody>();
         audioSourceObject = GetComponent<AudioSource>();
+        _originPosition = transform.position;
     }
     public void Grab(Transform objectGrabPointTransform)
     {

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Introduction : MonoBehaviour
+public class Introduction : MonoBehaviourSingleton<Introduction>
 {
     [SerializeField] private GameObject player;
 

@@ -20,6 +20,7 @@ public class Controller : MonoBehaviour
     
     public bool isCinematic = true;
     public bool IsWalking { get { return _isWalking; } }
+    public bool IsGrounded { get { return characterController.isGrounded; } }
     
     
     // Start is called before the first frame update

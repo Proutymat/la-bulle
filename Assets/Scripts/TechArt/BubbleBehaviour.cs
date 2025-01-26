@@ -22,7 +22,9 @@ public class BubbleBehaviour : MonoBehaviour
     private void Start()
     {
         _controller = GameObject.FindAnyObjectByType<Controller>();
-            EditorApplication.playModeStateChanged += RestMat;
+#if UNITY_EDITOR
+        EditorApplication.playModeStateChanged += RestMat;
+#endif
     }
 
     private void Update()
@@ -53,7 +55,7 @@ public class BubbleBehaviour : MonoBehaviour
             Destroy(gameObject);
         });
     }
-
+#if UNITY_EDITOR
     private void RestMat(PlayModeStateChange state)
     {
         if (state != PlayModeStateChange.EnteredEditMode)
@@ -66,4 +68,6 @@ public class BubbleBehaviour : MonoBehaviour
         _outerBubble.SetFloat("_PowerNoise", 1);
         _blackAndWhiteMat.SetFloat("_TransitionColor",0);
     }
+#endif
 }
+

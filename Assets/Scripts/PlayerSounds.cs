@@ -52,12 +52,19 @@ public class PlayerSounds : MonoBehaviour
         maxDuration = Random.Range(minDuration, maxDuration);
         
         ambienceSource.Play();
+
+        //init ambience Source :
+        float distance = Vector3.Distance(bubbleTransform.position, transform.position);
+        float volume = Mathf.Clamp01(1 - (distance - minDistance) / (maxDistance - minDistance));
+        ambienceSource.volume = _ambianceCurve.Evaluate(volume) * maxVolume;
     }
 
     private void Update()
     {
-        if(isCinematic == true)return;
-        if (playerController.IsWalking == true)
+        if(isCinematic == true)
+            return;
+
+        if (playerController.IsWalking == true && playerController.IsGrounded)
         {
             currentDuration -= Time.deltaTime;
             //Debug.Log(currentDuration);
@@ -70,7 +77,7 @@ public class PlayerSounds : MonoBehaviour
         
         if(bubbleTransform == null)
         {
-            float currentV = Time.deltaTime * 0.8f;
+            float currentV = Time.deltaTime * 1.2f;
             ambienceSource.volume = Mathf.Max(ambienceSource.volume - currentV, 0); ; 
             return;
         }

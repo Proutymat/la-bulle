@@ -62,7 +62,7 @@ Material:
     - _DeformationColorScale: 2.8
     - _DeformationForce: 0.005
     - _DeformationScale: 18.88
-    - _DisplacementNoiseForce: 0.01
+    - _DisplacementNoiseForce: 0.2
     - _DisplayModuloStep: 0.004
     - _DstBlend: 10
     - _FresnelPow: 3.26
