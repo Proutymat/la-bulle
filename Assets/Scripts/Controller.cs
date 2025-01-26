@@ -35,6 +35,7 @@ public class Controller : MonoBehaviour
     void Update()
     {
         if(isCinematic == true)return;
+        
         // Handle movement
         Vector3 forward = transform.forward;
     	Vector3 moveDirection = new Vector3(_walkSpeed * Input.GetAxis("Horizontal"), -_gravityScale, _walkSpeed * Input.GetAxis("Vertical"));
