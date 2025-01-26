@@ -310,6 +310,63 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _startDistance: 8.7
+  _powerFadeOut:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.0023498535
+      inSlope: 0.00002801217
+      outSlope: 0.00002801217
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.3558892
+    - serializedVersion: 3
+      time: 0.8330412
+      value: 0.17738083
+      inSlope: 0.55401933
+      outSlope: 0.55401933
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.15713382
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _transiFadeOut:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!135 &8090105748112390262
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -494,13 +551,13 @@ ReflectionProbe:
   m_Enabled: 1
   serializedVersion: 2
   m_Type: 0
-  m_Mode: 0
+  m_Mode: 1
   m_RefreshMode: 1
   m_TimeSlicingMode: 0
   m_Resolution: 2048
   m_UpdateFrequency: 0
-  m_BoxSize: {x: 123.3018, y: 10, z: 124.54083}
-  m_BoxOffset: {x: -0.272583, y: 0, z: 0.44713402}
+  m_BoxSize: {x: 187.92204, y: 202.00279, z: 218.69446}
+  m_BoxOffset: {x: 3.3511276, y: 96.00141, z: -15.027004}
   m_NearClip: 0.3
   m_FarClip: 1000
   m_ShadowDistance: 100
