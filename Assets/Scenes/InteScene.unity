@@ -473,6 +473,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 691394939111266696, guid: faf9f382db9973343b49f2bd1aa5ea99, type: 3}
+      propertyPath: _hand
+      value: 
+      objectReference: {fileID: 884048508}
     - target: {fileID: 919132149155446097, guid: faf9f382db9973343b49f2bd1aa5ea99, type: 3}
       propertyPath: m_Name
       value: WaffleMesh
@@ -1456,6 +1460,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 771781667}
     m_Modifications:
+    - target: {fileID: 1971746653452923621, guid: a4a3854a63458a549b9aa6f52b093504, type: 3}
+      propertyPath: _hand
+      value: 
+      objectReference: {fileID: 884048508}
     - target: {fileID: 8205104823257208939, guid: a4a3854a63458a549b9aa6f52b093504, type: 3}
       propertyPath: m_Name
       value: BowlingMesh
@@ -1972,6 +1980,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 771781667}
     m_Modifications:
+    - target: {fileID: 2453551260556450995, guid: f6ff75a1688eaf34080c618fd2f3caef, type: 3}
+      propertyPath: _hand
+      value: 
+      objectReference: {fileID: 884048508}
     - target: {fileID: 8236620821322478794, guid: f6ff75a1688eaf34080c618fd2f3caef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.69
@@ -2066,6 +2078,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 771781667}
     m_Modifications:
+    - target: {fileID: 2816603677435803196, guid: 008590a0a03fb73408e6229a1a72ad1f, type: 3}
+      propertyPath: _hand
+      value: 
+      objectReference: {fileID: 884048508}
     - target: {fileID: 8604065681719537596, guid: 008590a0a03fb73408e6229a1a72ad1f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.11
@@ -2625,6 +2641,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5324224618785399185, guid: f734f738ae6187a43bb5118986d51f65, type: 3}
+      propertyPath: _hand
+      value: 
+      objectReference: {fileID: 884048508}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3096,6 +3116,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 771781667}
     m_Modifications:
+    - target: {fileID: 6445804221044176905, guid: 62a43c44879ae784792c0911daa01a1e, type: 3}
+      propertyPath: _hand
+      value: 
+      objectReference: {fileID: 884048508}
     - target: {fileID: 8478508443952502614, guid: 62a43c44879ae784792c0911daa01a1e, type: 3}
       propertyPath: m_Name
       value: TeapotMesh
@@ -3303,6 +3327,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrownMesh
       objectReference: {fileID: 0}
+    - target: {fileID: 7260786490368887641, guid: 277ebb878a4252a468a5adaf2330e3ac, type: 3}
+      propertyPath: _hand
+      value: 
+      objectReference: {fileID: 884048508}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4007,6 +4035,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 771781667}
     m_Modifications:
+    - target: {fileID: 7569204246536291460, guid: 7448f813b4be94d448a1f842cecc39a9, type: 3}
+      propertyPath: _hand
+      value: 
+      objectReference: {fileID: 884048508}
     - target: {fileID: 8130127417921619491, guid: 7448f813b4be94d448a1f842cecc39a9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.2
@@ -4213,6 +4245,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8453639100955413906, guid: 520cfe27e093c9f4f8f327ac75036c73, type: 3}
+      propertyPath: _hand
+      value: 
+      objectReference: {fileID: 884048508}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4423,6 +4459,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HatMesh
       objectReference: {fileID: 0}
+    - target: {fileID: 3147713074871163649, guid: 732177dbbcb1cc249a126db3dea288c2, type: 3}
+      propertyPath: _hand
+      value: 
+      objectReference: {fileID: 884048508}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4903,6 +4943,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedBubbleTeaMesh
       objectReference: {fileID: 0}
+    - target: {fileID: 1820162383032231558, guid: a56e8fa0654364341b2a90f510264db7, type: 3}
+      propertyPath: _hand
+      value: 
+      objectReference: {fileID: 884048508}
     - target: {fileID: 1893177976460142783, guid: a56e8fa0654364341b2a90f510264db7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.2
