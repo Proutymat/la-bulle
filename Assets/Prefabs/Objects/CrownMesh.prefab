@@ -69,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d8fa399ad50f0d14d8bd2b8d0ee55e55, type: 2}
+  - {fileID: 2100000, guid: 7d61e12648db56b45993caf53d1992f7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -135,6 +135,7 @@ MonoBehaviour:
   _objectName: Waffle
   grabObjSound: {fileID: 8300000, guid: 137d0c4ea6d4fbb43bb90a19ca587902, type: 3}
   dropObjSound: {fileID: 8300000, guid: 22a7045100095fb4989d2a13a07a512b, type: 3}
+  _triggerCollider: {fileID: 0}
 --- !u!82 &238373333859823574
 AudioSource:
   m_ObjectHideFlags: 0
