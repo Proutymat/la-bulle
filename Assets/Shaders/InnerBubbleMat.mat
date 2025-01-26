@@ -53,7 +53,7 @@ Material:
     - _IOR: 0
     - _IsBake: 0
     - _NoiseFinalScale: 21.64
-    - _PowerNoise: 1
+    - _PowerNoise: 35
     - _QueueControl: 1
     - _QueueOffset: 0
     - _ScaleAlpha: 0.39

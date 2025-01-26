@@ -17,6 +17,7 @@ public class BubbleBehaviour : MonoBehaviour
     [SerializeField] private AnimationCurve _transiFadeOut = AnimationCurve.Linear(0, 0, 1, 1);
 
     private Controller _controller;
+    private bool _isWin = false;
 
     private void Start()
     {
@@ -26,6 +27,8 @@ public class BubbleBehaviour : MonoBehaviour
 
     private void Update()
     {
+        if(_isWin)
+            return;
         float distance = Vector3.Distance(_controller.transform.position, transform.position);
         if (distance <= _startDistance)
         {
@@ -37,11 +40,13 @@ public class BubbleBehaviour : MonoBehaviour
     }
 
     [ContextMenu("WinAnim")]
-    private void OnWin()
+    public void OnWin()
     {
-        _blackAndWhiteMat.SetFloat("_TransitionColor",1);
+        _isWin = true;
+        //_blackAndWhiteMat.SetFloat("_TransitionColor",1);
         _outerBubble.DOFloat(0, "_TransiFadeOut", 5).SetEase(_transiFadeOut);
         _innerBubble.DOFloat(0, "_TransiFadeOut", 5).SetEase(_transiFadeOut);
+        _blackAndWhiteMat.DOFloat(1, "_TransitionColor", 5).SetEase(_transiFadeOut);
         _innerBubble.DOFloat(35, "_PowerNoise", 10).SetEase(_powerFadeOut);
         _outerBubble.DOFloat(35, "_PowerNoise", 10).SetEase(_powerFadeOut).OnComplete(() => 
         {
