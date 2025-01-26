@@ -22,7 +22,7 @@ public class PlayerSounds : MonoBehaviour
     
     [Header("Ambience")]
     [SerializeField] private AudioClip ambienceBasic;
-    
+    [SerializeField] private AnimationCurve _ambianceCurve = AnimationCurve.Linear(0,0,1,1);
     [SerializeField] private float maxDistance = 20f; 
     [SerializeField] private float minDistance = 1f;
     [SerializeField] private Transform bubbleTransform;
@@ -71,7 +71,7 @@ public class PlayerSounds : MonoBehaviour
         {
             float distance = Vector3.Distance(bubbleTransform.position, transform.position);
             float volume = Mathf.Clamp01(1 - (distance - minDistance) / (maxDistance - minDistance));
-            ambienceSource.volume = volume*maxVolume;
+            ambienceSource.volume = _ambianceCurve.Evaluate(volume) * maxVolume;
         }
     }
     void PlayFootSteps()
@@ -110,7 +110,6 @@ public class PlayerSounds : MonoBehaviour
         float currentTime = 0;
         float currentVol;
         audioMixer.GetFloat("lowPassFilter", out currentVol);
-        Debug.Log(currentVol);
         while (currentTime < duration)
         {
             currentTime += Time.deltaTime;
@@ -124,7 +123,6 @@ public class PlayerSounds : MonoBehaviour
         float currentTime = 0;
         float currentVol;
         audioMixer.GetFloat("lowPassFilter", out currentVol);
-        Debug.Log(currentVol);
         while (currentTime < duration)
         {
             currentTime += Time.deltaTime;
