@@ -1,4 +1,7 @@
 using UnityEngine;
+using DG.Tweening;
+using UnityEngine.SceneManagement;
+using UnityEditor;
 public class BubbleBehaviour : MonoBehaviour
 {
     [SerializeField] private Material _outerBubble = null;
@@ -10,16 +13,22 @@ public class BubbleBehaviour : MonoBehaviour
 
     [SerializeField] private float _startDistance = 4;
 
+    [SerializeField] private AnimationCurve _powerFadeOut = AnimationCurve.Linear(0, 0, 1, 1);
+    [SerializeField] private AnimationCurve _transiFadeOut = AnimationCurve.Linear(0, 0, 1, 1);
 
     private Controller _controller;
+    private bool _isWin = false;
 
     private void Start()
     {
         _controller = GameObject.FindAnyObjectByType<Controller>();
+            EditorApplication.playModeStateChanged += RestMat;
     }
 
     private void Update()
     {
+        if(_isWin)
+            return;
         float distance = Vector3.Distance(_controller.transform.position, transform.position);
         if (distance <= _startDistance)
         {
@@ -29,10 +38,32 @@ public class BubbleBehaviour : MonoBehaviour
             _blackAndWhiteMat.SetFloat("_TransitionColor", Mathf.Lerp(1, 0, _bwCurve.Evaluate(factor)));
         }
     }
-    private void OnDestroy()
+
+    [ContextMenu("WinAnim")]
+    public void OnWin()
     {
+        _isWin = true;
+        //_blackAndWhiteMat.SetFloat("_TransitionColor",1);
+        _outerBubble.DOFloat(0, "_TransiFadeOut", 5).SetEase(_transiFadeOut);
+        _innerBubble.DOFloat(0, "_TransiFadeOut", 5).SetEase(_transiFadeOut);
+        _blackAndWhiteMat.DOFloat(1, "_TransitionColor", 5).SetEase(_transiFadeOut);
+        _innerBubble.DOFloat(35, "_PowerNoise", 10).SetEase(_powerFadeOut);
+        _outerBubble.DOFloat(35, "_PowerNoise", 10).SetEase(_powerFadeOut).OnComplete(() => 
+        {
+            Destroy(gameObject);
+        });
+    }
+
+    private void RestMat(PlayModeStateChange state)
+    {
+        if (state != PlayModeStateChange.EnteredEditMode)
+            return;
         _innerBubble.SetFloat("_TransitionVisible", 0);
         _outerBubble.SetFloat("_TransitionVisible", 1);
+        _outerBubble.SetFloat("_TransiFadeOut", 50);
+        _outerBubble.SetFloat("_PowerNoise", 1);
+        _innerBubble.SetFloat("_TransiFadeOut", 50);
+        _outerBubble.SetFloat("_PowerNoise", 1);
         _blackAndWhiteMat.SetFloat("_TransitionColor",0);
     }
 }

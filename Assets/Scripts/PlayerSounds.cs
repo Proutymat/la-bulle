@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using UnityEngine.Audio;
@@ -66,6 +67,14 @@ public class PlayerSounds : MonoBehaviour
                 currentDuration = maxDuration;
             }
         }
+        
+        if(bubbleTransform == null)
+        {
+            float currentV = Time.deltaTime * 0.8f;
+            ambienceSource.volume = Mathf.Max(ambienceSource.volume - currentV, 0); ; 
+            return;
+        }
+        
         if (isPlayerInside)
         {
             ambienceSource.volume = constantVolume * maxVolume; 

@@ -63,24 +63,34 @@ Material:
     - _DeformationForce: 0.005
     - _DeformationScale: 18.88
     - _DisplacementNoiseForce: 0.01
+    - _DisplayModuloStep: 0.004
     - _DstBlend: 10
     - _FresnelPow: 3.26
     - _FresnelWhite: 4.84
     - _IOR: 0.9
     - _IsBaked: 0
+    - _Modulo: 27.63
     - _NoiseScale: 5.06
+    - _Pow: 2.45
+    - _PowerNoise: 1
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _ScaleNoiseFinal: 55.19
     - _Smooth: 0.02
     - _SpeedRotation: 0.2
     - _SrcBlend: 5
     - _Surface: 1
+    - _TransiFadeOut: 50
+    - _TransiModulo: 50
+    - _TransiSmoothModulo: 0
     - _TransitionVisible: 1
     - _YAccuracy: 0.9
+    - _YValueOrb: 0.004
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
-    m_Colors: []
+    m_Colors:
+    - _Vector2: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6342096283263088799
