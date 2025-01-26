@@ -28,6 +28,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Cubemap:
+        m_Texture: {fileID: 8900000, guid: 7d918b16b56082e48b5c0819027a6d88, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ReflexionMap:
         m_Texture: {fileID: 8900000, guid: f8c759571fdb3c4419b453048412d6ac, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -56,8 +60,8 @@ Material:
     - _CastShadows: 0
     - _Cull: 2
     - _DeformationColorScale: 2.8
-    - _DeformationForce: 0.04
-    - _DeformationScale: 7.28
+    - _DeformationForce: 0.005
+    - _DeformationScale: 18.88
     - _DisplacementNoiseForce: 0.01
     - _DstBlend: 10
     - _FresnelPow: 3.26
