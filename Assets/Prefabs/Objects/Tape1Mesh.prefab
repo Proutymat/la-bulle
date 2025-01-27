@@ -158,6 +158,7 @@ MonoBehaviour:
   _objectName: Tape1
   grabObjSound: {fileID: 0}
   dropObjSound: {fileID: 0}
+  _triggerCollider: {fileID: 0}
 --- !u!82 &53819316884947423
 AudioSource:
   m_ObjectHideFlags: 0
@@ -215,7 +216,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
