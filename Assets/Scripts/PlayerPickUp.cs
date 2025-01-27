@@ -195,6 +195,15 @@ public class PlayerPickUp : MonoBehaviour
                     ConsumeObject();
                     StartCoroutine(WaitForClipToEnd(cassette[6].length));
                 }
+                else if (_grabbableObject.ObjectName == "Tuto")
+                {
+                    animatorMagnetophone = _magnetoscope.GetComponent<Animator>();
+                    animatorMagnetophone.SetTrigger("hasTape");
+                    audioSourceMagnetophone = _magnetoscope.GetComponent<AudioSource>();
+                    audioSourceMagnetophone.PlayOneShot(cassette[7]);
+                    ConsumeObject();
+                    StartCoroutine(WaitForClipToEnd(cassette[7].length));
+                }
                 else
                 {
                     animatorMagnetophone = _magnetoscope.GetComponent<Animator>();
