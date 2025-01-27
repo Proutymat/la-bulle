@@ -26,9 +26,9 @@ public class Magnetophone : MonoBehaviour
     public void PlayEnd(Transform pos) 
     {
         Drop();
-        _startTape.SetActive(false);
-        SetTape(_endTape.gameObject);
+        //_startTape.SetActive(false);
         transform.position = pos.position;
+        SetTape(_endTape.gameObject);
         animatorMagnetophone.SetTrigger("hasTape");
         audioSourceMagnetophone.PlayOneShot(_endClip);
         StartCoroutine(WaitForClipToEnd(_endClip.length));
