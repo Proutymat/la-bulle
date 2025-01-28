@@ -22,6 +22,6 @@ public class Introduction : MonoBehaviourSingleton<Introduction>
     void Enable()
     {
         player.GetComponent<Controller>().isCinematic = false;
-        player.GetComponent<PlayerSounds>().isCinematic = false;
+        player.GetComponent<PlayerSounds>().ManageCinematic();
     }
 }
