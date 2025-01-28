@@ -14237,7 +14237,7 @@ PrefabInstance:
     - target: {fileID: 5720894009833580104, guid: 71311434dbc5e8743a04e71caa7844b8, type: 3}
       propertyPath: 'cassette.Array.data[7]'
       value: 
-      objectReference: {fileID: 8300000, guid: 1157c0c49b51f8d41b61d6c81d83b631, type: 3}
+      objectReference: {fileID: 8300000, guid: 5a77adf88b25e3d4f8c73ff531fe2293, type: 3}
     - target: {fileID: 6099676047877000848, guid: 71311434dbc5e8743a04e71caa7844b8, type: 3}
       propertyPath: m_UiScaleMode
       value: 1
@@ -14316,7 +14316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8211463645196744567, guid: 71311434dbc5e8743a04e71caa7844b8, type: 3}
       propertyPath: isCinematic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8211463645196744567, guid: 71311434dbc5e8743a04e71caa7844b8, type: 3}
       propertyPath: _lookXBotLimit
