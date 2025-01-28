@@ -121,7 +121,7 @@ public class PlayerPickUp : MonoBehaviour
         _grabbableObject = null;
     }
 
-    private void HandleInteractiblesObjects()
+    private bool HandleInteractiblesObjects()
     {
         AudioSource audioSourceMagnetophone;
         Animator animatorMagnetophone;
@@ -130,11 +130,21 @@ public class PlayerPickUp : MonoBehaviour
         {
             if (_grabbableObject == null)
             {
-                Debug.Log("No object in hand");
+                Debug.Log("No object in hand : " + _grabbableObject);
+                Debug.Log("Current tape is null: " + _magnetoscope.GetComponent<Magnetophone>().currentTape);
+                Debug.Log("TEST : " + _grabbableObject == null || !_magnetoscope.GetComponent<Magnetophone>().currentTape);
                 animatorMagnetophone = _magnetoscope.GetComponent<Animator>();
                 animatorMagnetophone.SetTrigger("hasError");
                 audioSourceMagnetophone = _magnetoscope.GetComponent<AudioSource>();
                 audioSourceMagnetophone.PlayOneShot(cassette[0]);
+            }
+            else if (_grabbableObject&& _magnetoscope.GetComponent<Magnetophone>().currentTape)
+            {
+                animatorMagnetophone = _magnetoscope.GetComponent<Animator>();
+                animatorMagnetophone.SetTrigger("hasTape");
+                audioSourceMagnetophone = _magnetoscope.GetComponent<AudioSource>();
+                audioSourceMagnetophone.PlayOneShot(cassette[0]);
+                return true;
             }
             else
             {
@@ -214,6 +224,8 @@ public class PlayerPickUp : MonoBehaviour
                 }
             }
         }
+
+        return false;   
     }
 
     // Update is called once per frame
@@ -222,7 +234,10 @@ public class PlayerPickUp : MonoBehaviour
         // Is the plauer trying to interact with something
         if (Input.GetKeyDown(KeyCode.E))
         {
-            HandleInteractiblesObjects();
+            if (HandleInteractiblesObjects())
+            {
+                return;
+            }
         }
         
         HandleGrabbableObjects();

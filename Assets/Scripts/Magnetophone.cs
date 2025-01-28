@@ -10,7 +10,7 @@ public class Magnetophone : MonoBehaviour
     [SerializeField] private AudioClip _endClip = null;
     AudioSource audioSourceMagnetophone;
     Animator animatorMagnetophone;
-    private GameObject currentTape = null;
+    public GameObject currentTape = null;
 
     private void Start()
     {
