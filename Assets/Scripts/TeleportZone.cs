@@ -65,6 +65,7 @@ public class TeleportZone : MonoBehaviour
             {
                 Debug.Log("Win");
                 _bubbleBehaviour.OnWin();
+                gameObject.SetActive(false);
             }
         }
     }
