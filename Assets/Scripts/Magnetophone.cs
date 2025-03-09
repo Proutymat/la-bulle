@@ -35,7 +35,9 @@ public class Magnetophone : MonoBehaviour
     }
     private IEnumerator WaitForClipToEnd(float duration)
     {
+		Debug.Log("Magnetoscope: waiting = " + duration);
         yield return new WaitForSeconds(duration);
+		//Drop();
         animatorMagnetophone.SetTrigger("hasFinishAudio");
     }
     public void SetTape(GameObject tape) 
@@ -45,14 +47,17 @@ public class Magnetophone : MonoBehaviour
     }
     public void Drop()
     {
-        if (currentTape == null)
-            return;
+        if (currentTape == null) {
+            Debug.Log("Magnetoscope: No tape to drop");
+			return;
+		}
+		Debug.Log("Magnetoscope: Tape dropped");
         Rigidbody rb = currentTape.GetComponent<Rigidbody>();
         currentTape.SetActive(true);
         currentTape.GetComponent<GrabbableObject>().StopGrap();
         currentTape.GetComponent<GrabbableObject>().SetTriggerCollider(true);
         rb.isKinematic = false;
         rb.AddForce(_mouthPosition.forward * 150);
-        currentTape = null;
+        currentTape = null;	
     }
 }
