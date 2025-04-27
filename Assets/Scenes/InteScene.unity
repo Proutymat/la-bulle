@@ -18321,7 +18321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8211463645196744567, guid: 71311434dbc5e8743a04e71caa7844b8, type: 3}
       propertyPath: isCinematic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8211463645196744567, guid: 71311434dbc5e8743a04e71caa7844b8, type: 3}
       propertyPath: _lookXBotLimit
@@ -20612,7 +20612,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955327509}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
