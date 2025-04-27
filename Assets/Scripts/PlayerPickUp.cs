@@ -128,6 +128,7 @@ public class PlayerPickUp : MonoBehaviour
         // Is the player looking at a magnetophone
         if (DetectMagnetophone())
         {
+            // No object in hand
             if (_grabbableObject == null)
             {
                 Debug.Log("No object in hand : " + _grabbableObject);
@@ -138,10 +139,9 @@ public class PlayerPickUp : MonoBehaviour
                 audioSourceMagnetophone = _magnetoscope.GetComponent<AudioSource>();
                 audioSourceMagnetophone.PlayOneShot(cassette[0]);
             }
+            // 
             else if (_grabbableObject&& _magnetoscope.GetComponent<Magnetophone>().currentTape)
             {
-                animatorMagnetophone = _magnetoscope.GetComponent<Animator>();
-                animatorMagnetophone.SetTrigger("hasTape");
                 audioSourceMagnetophone = _magnetoscope.GetComponent<AudioSource>();
                 audioSourceMagnetophone.PlayOneShot(cassette[0]);
                 return true;
