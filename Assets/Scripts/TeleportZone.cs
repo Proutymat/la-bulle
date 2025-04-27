@@ -9,6 +9,8 @@ public class TeleportZone : MonoBehaviour
     [SerializeField] private List<GameObject> _objectsToValidate = new List<GameObject>();
     private List<GameObject> _objectsInTheHole = new List<GameObject>();
     private CharacterController _controller;
+    [SerializeField] private GameObject _reactifs;
+    
 
     private void StoreObject(GameObject gameObject)
     {
@@ -25,40 +27,49 @@ public class TeleportZone : MonoBehaviour
 
     private void PlayerInTheHole(CharacterController chara)
     {
+        Debug.Log("PLAYER IN THE HOLE");
+        if (chara.gameObject.GetComponent<PlayerPickUp>().GrabbableObject)
+        {
+            GrabbableObject obj = chara.gameObject.GetComponent<PlayerPickUp>().DropObject();
+            obj.gameObject.SetActive(true);
+            obj.transform.position = obj.OriginPosition;
+        }
+
         // Teleport the player
         chara.enabled = false;
         chara.transform.position = _destination.position;
         chara.enabled = true;
 
-        // Teleport all objects to their origin position
-        for (int i = 0; i < _objectsInTheHole.Count; i++)
+        // Activate and reset the objects
+        for (int i = 0; i < _reactifs.transform.childCount; i++)
         {
-            _objectsInTheHole[i].SetActive(true);
-            _objectsInTheHole[i].transform.position = _objectsInTheHole[i].GetComponent<GrabbableObject>().OriginPosition;
+            Transform child = _reactifs.transform.GetChild(i);
+            child.gameObject.SetActive(true);
+
+            GrabbableObject grabbable = child.GetComponent<GrabbableObject>();
+            if (grabbable != null)
+            {
+                child.position = grabbable.OriginPosition;
+            }
         }
 
         _objectsInTheHole.Clear();
-    }
-
-    private void Update()
-    {
-        if(_controller.transform.position.y <= transform.position.y)
-        {
-            PlayerInTheHole(_controller);
-        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<CharacterController>())
         {
-            return;
+            PlayerInTheHole(_controller);
         }
         else
         {
+            Debug.Log("OBJECT IN THE HOLE");
+            // Check if the object is already in the hole
             if(_objectsInTheHole.Contains(other.gameObject))
                 return;
             StoreObject(other.gameObject);
+            
             // Good objects in the hole
             if (_objectsInTheHole.Count == _objectsToValidate.Count &&
                 !_objectsToValidate.Except(_objectsInTheHole).Any())

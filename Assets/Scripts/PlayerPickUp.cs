@@ -21,6 +21,7 @@ public class PlayerPickUp : MonoBehaviour
     [SerializeField] private Canvas _pressECanvas;
     
     [SerializeField] private GrabbableObject _grabbableObject;
+    public GrabbableObject GrabbableObject { get { return _grabbableObject; } }
     [SerializeField] private GameObject _magnetoscope;
     
     private bool _hasAlreadyInteractedOnce;
@@ -30,10 +31,12 @@ public class PlayerPickUp : MonoBehaviour
         _hasAlreadyInteractedOnce = false;
     }
 
-    private void DropObject()
+    public GrabbableObject DropObject()
     {
+        GrabbableObject temp = _grabbableObject;
         _grabbableObject.Drop();
         _grabbableObject = null;
+        return temp;
     }
 
     private void HandleGrabbableObjects()
